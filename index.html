@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UD2: Marco Laboral, Constitución y Fiscalidad del Negocio Náutico</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- MathJax CDN for rendering LaTeX formulas -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .slide {
+      display: none;
+      min-height: 88vh;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 1;
+    }
+
+    /* Print styles for converting to PDF directly */
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+      }
+      #nav-controls, #progress-bar, #fullscreen-btn {
+        display: none !important;
+      }
+      .slide {
+        display: flex !important;
+        opacity: 1 !important;
+        min-height: 100vh !important;
+        page-break-after: always;
+        break-after: page;
+        border: none !important;
+        box-shadow: none !important;
+        background-color: #ffffff !important;
+        color: #0f172a !important;
+        padding: 2rem !important;
+      }
+      .card-box {
+        background-color: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        color: #0f172a !important;
+      }
+      .card-box-accent {
+        background-color: #eff6ff !important;
+        border: 1px solid #bfdbfe !important;
+        color: #1e3a8a !important;
+      }
+      .text-slate-100, .text-slate-200, .text-slate-300, .text-white {
+        color: #0f172a !important;
+      }
+      .text-slate-400, .text-slate-500 {
+        color: #475569 !important;
+      }
+      .bg-slate-800, .bg-slate-900, .bg-slate-950 {
+        background-color: #f8fafc !important;
+      }
+      .border-slate-700, .border-slate-800 {
+        border-color: #cbd5e1 !important;
+      }
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-between min-h-screen">
+
+  <!-- TOP HEADER / NAV BAR -->
+  <header class="bg-slate-900 border-b border-slate-800 px-6 py-3 flex justify-between items-center sticky top-0 z-50">
+    <div class="flex items-center space-x-3">
+      <div class="bg-blue-600 text-white p-2 rounded-lg font-bold">
+        <i class="fa-solid fa-ship"></i>
+      </div>
+      <div>
+        <span class="text-xs font-semibold text-blue-400 uppercase tracking-wider block">Formación Profesional · Módulo IB2301</span>
+        <h1 class="text-sm md:text-base font-bold text-slate-100">UD2: Sistema Laboral, Constitución y Fiscalidad Náutica</h1>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-4">
+      <span id="slide-counter" class="text-xs md:text-sm font-semibold bg-slate-800 text-slate-300 px-3 py-1.5 rounded-full border border-slate-700">
+        Diapositiva 1 / 62
+      </span>
+      <button id="fullscreen-btn" onclick="toggleFullScreen()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Pantalla Completa">
+        <i class="fa-solid fa-expand"></i>
+      </button>
+      <button onclick="window.print()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Imprimir o Exportar a PDF">
+        <i class="fa-solid fa-file-pdf"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div id="progress-bar" class="w-full bg-slate-800 h-1.5">
+    <div id="progress-fill" class="bg-blue-500 h-1.5 transition-all duration-300" style="width: 1.6%;"></div>
+  </div>
+
+  <!-- MAIN SLIDES CONTAINER -->
+  <main class="flex-grow p-4 md:p-8 max-w-7xl mx-auto w-full custom-scrollbar">
+
+    <!-- SLIDE 1: PORTADA -->
+    <div class="slide active" id="slide-1">
+      <div class="flex flex-col justify-center items-center text-center my-auto py-12">
+        <div class="inline-flex items-center space-x-2 bg-blue-950/80 text-blue-400 border border-blue-800/60 px-4 py-2 rounded-full mb-6">
+          <i class="fa-solid fa-anchor"></i>
+          <span class="text-xs font-semibold uppercase tracking-widest">Unidad Didáctica 2 · 6 Sesiones de Aprendizaje</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-6 max-w-4xl">
+          Marco Laboral, Constitución y Fiscalidad del Negocio Náutico
+        </h1>
+        <p class="text-lg md:text-xl text-slate-300 max-w-2xl mb-8 leading-relaxed">
+          Guía práctica para el emprendimiento en el sector náutico: de las obligaciones del autónomo a la tributación y gestión fiscal del taller o varadero.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left w-full max-w-3xl mt-4">
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+            <div class="text-blue-400 font-bold mb-1"><i class="fa-solid fa-user-gear mr-2"></i>Bloque 1 (B04)</div>
+            <div class="text-xs text-slate-300">Sistema laboral y cotización del autónomo (Sesiones 1 y 2)</div>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+            <div class="text-emerald-400 font-bold mb-1"><i class="fa-solid fa-building-user mr-2"></i>Bloque 2 (B05)</div>
+            <div class="text-xs text-slate-300">Trámites de constitución y tributos (Sesiones 3 y 4)</div>
+          </div>
+          <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+            <div class="text-purple-400 font-bold mb-1"><i class="fa-solid fa-file-invoice-dollar mr-2"></i>Bloque 3 (B06)</div>
+            <div class="text-xs text-slate-300">Fiscalidad, facturación y calendario (Sesiones 5 y 6)</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-xs text-slate-500 py-2 border-t border-slate-800">
+        Material Didáctico de Apoyo para el Alumnado · Ciclos Formativos de Mantenimiento Náutico
+      </div>
+    </div>
+
+    <!-- SLIDE 2: PRESENTACIÓN Y CONTEXTO -->
+    <div class="slide" id="slide-2">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Contextualización Didáctica</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">El Sector Náutico en Menorca y el Emprendimiento</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700/80 card-box">
+          <h3 class="text-lg font-bold text-blue-400 mb-3 flex items-center">
+            <i class="fa-solid fa-compass mr-2"></i> Contexto Real de la Actividad
+          </h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            El entorno náutico en la isla de Menorca (puertos de Maó, Ciutadella, Fornells) combina una alta estacionalidad con servicios especializados de mantenimiento, invernaje, reparación de motores y carpintería de ribera.
+          </p>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Tanto si trabajas como técnico independiente con un taller móvil, como si te asocias para abrir un varadero, necesitarás dominar el marco legal, la cotización a la Seguridad Social y la fiscalidad para garantizar la viabilidad y legalidad de tu negocio.
+          </p>
+        </div>
+        <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700/80 card-box">
+          <h3 class="text-lg font-bold text-emerald-400 mb-3 flex items-center">
+            <i class="fa-solid fa-bullseye mr-2"></i> Metodología y Aplicación
+          </h3>
+          <ul class="space-y-3 text-slate-300 text-sm">
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-2"></i>
+              <span><strong>Enfoque práctico:</strong> Estudio mediante casos reales (talleres mecánicos, varaderos, empresas de chárter).</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-2"></i>
+              <span><strong>Herramientas reales:</strong> Modelos oficiales de la AEAT (036/037, 303, 130, 115) y plataforma Importass de la Seguridad Social.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-check text-emerald-400 mt-1 mr-2"></i>
+              <span><strong>Secuencia completa:</strong> 6 sesiones guiadas con ejercicios autocorregibles, de aula y para plataforma Classroom.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+        <span><i class="fa-solid fa-info-circle mr-2 text-blue-400"></i>Estructura: 2 sesiones de Marco Laboral + 2 sesiones de Constitución + 2 sesiones de Fiscalidad.</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: ¿QUÉ APRENDEREMOS? -->
+    <div class="slide" id="slide-3">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Objetivos de Aprendizaje</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">¿Qué aprenderemos a lo largo de las 6 sesiones?</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-blue-500/30 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">Sesiones 1 y 2 (B04)</div>
+            <h3 class="text-lg font-bold text-white mb-3">Ser Autónomo y Cotizar</h3>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>• Requisitos de inclusión en el RETA.</li>
+              <li>• Diferenciar Autónomo Individual, TRADE, Societario y Familiar Colaborador.</li>
+              <li>• Cálculo de cuota por rendimientos reales y regularización anual.</li>
+              <li>• Requisitos legales para contratar a la primera persona trabajadora.</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/60 text-xs text-blue-300 font-semibold">
+            Resultado: Control de la gestión laboral propia y de empleados.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-emerald-500/30 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-2">Sesiones 3 y 4 (B05)</div>
+            <h3 class="text-lg font-bold text-white mb-3">Trámites y Tributos</h3>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>• Ordenar trámites de constitución (Autónomo vs. SL vs. Soc. Civil).</li>
+              <li>• Uso de Modelos 036/037, IAE, sistema CIRCE y Puntos PAE.</li>
+              <li>• Licencias de actividad y declaración responsable en el ayuntamiento.</li>
+              <li>• Estructura del sistema tributario (Impuestos, Tasas y Contribuciones).</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/60 text-xs text-emerald-300 font-semibold">
+            Resultado: Capacidad de apertura e inicio legal del negocio.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-purple-500/30 flex flex-col justify-between">
+          <div>
+            <div class="text-xs font-bold text-purple-400 uppercase tracking-widest mb-2">Sesiones 5 y 6 (B06)</div>
+            <h3 class="text-lg font-bold text-white mb-3">Fiscalidad y Facturación</h3>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>• Tratamiento fiscal (IRPF vs. Impuesto sobre Sociedades).</li>
+              <li>• Mecánica del IVA (Repercutido, Soportado y Liquidación).</li>
+              <li>• Emisión de Facturas Ordinarias/Simplificadas y Veri*Factu.</li>
+              <li>• Cumplimentación del Calendario Fiscal Trimestral (303, 130, 115).</li>
+            </ul>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-700/60 text-xs text-purple-300 font-semibold">
+            Resultado: Autonomía en la gestión fiscal y cumplimiento impositivo.
+          </div>
+        </div>
+      </div>
+      <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-400 text-center">
+        Unidad Didáctica orientada a capacitar al profesional náutico en la toma de decisiones empresariales informadas.
+      </div>
+    </div>
+
+    <!-- SLIDE 4: RA Y CRITERIOS DE EVALUACIÓN -->
+    <div class="slide" id="slide-4">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Marco Curricular Oficial</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Resultado de Aprendizaje y Criterios de Evaluación</h2>
+      </div>
+      <div class="bg-slate-800/90 p-6 rounded-2xl border border-blue-500/40 mb-6 card-box-accent">
+        <div class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">Resultado de Aprendizaje 2 (RA2)</div>
+        <p class="text-base font-semibold text-slate-100">
+          "S'ha analitzat el sistema laboral, els tràmits de constitució i el sistema tributari reconeixent les principals obligacions de caràcter laboral i fiscal com a autònom i/o empresari individual."
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto">
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 text-xs">
+          <div class="font-bold text-blue-400 mb-1">Criterio 2a (Trabajado en B04)</div>
+          <p class="text-slate-300">S'han analitzat el sistema laboral espanyol reconeixent les principals obligacions de caràcter laboral com a autònom i/o empresari individual.</p>
+        </div>
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 text-xs">
+          <div class="font-bold text-emerald-400 mb-1">Criterio 2b (Trabajado en B05)</div>
+          <p class="text-slate-300">S'han analitzat els tràmits exigits per la legislació vigent per a la constitució d'una empresa.</p>
+        </div>
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 text-xs">
+          <div class="font-bold text-purple-400 mb-1">Criterio 2c (Trabajado en B06)</div>
+          <p class="text-slate-300">S'han diferenciat el tractament fiscal establert per als autònoms i les diferents formes jurídiques de l'empresa.</p>
+        </div>
+        <div class="bg-slate-800/60 p-4 rounded-xl border border-slate-700 text-xs">
+          <div class="font-bold text-amber-400 mb-1">Criterios 2d y 2e (Trabajados en B05 y B06)</div>
+          <p class="text-slate-300">2d) S'han diferenciat els tipus d'impostos en el calendari fiscal.<br>2e) S'ha analitzat el sistema tributari espanyol reconeixent les seves finalitats bàsiques.</p>
+        </div>
+      </div>
+      <div class="mt-4 text-xs text-slate-500 text-center">
+        Texto oficial del currículo normativo de Formación Profesional.
+      </div>
+    </div>
+
+    <!-- SLIDE 5: ÍNDICE GENERAL -->
+    <div class="slide" id="slide-5">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Estructura del Contenido</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Índice General de la Unidad Didáctica</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+        <div class="bg-slate-800/70 p-5 rounded-2xl border border-slate-700">
+          <div class="flex items-center space-x-3 mb-4 border-b border-slate-700 pb-3">
+            <span class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+            <h3 class="font-bold text-slate-100">Bloque B04: Sistema Laboral</h3>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li><strong>1.1</strong> Definición de Autónomo y RETA</li>
+            <li><strong>1.2</strong> Figuras: Individual, TRADE, Societario y Colaborador</li>
+            <li><strong>1.3</strong> Riqueza del RETA y Falso Autónomo</li>
+            <li><strong>1.4</strong> Cotización por Rendimientos Reales</li>
+            <li><strong>1.5</strong> Tarifa Plana y Regularización Anual</li>
+            <li><strong>1.6</strong> Contratar a la primera persona empleada</li>
+            <li><strong>1.7</strong> Casos Marc Seguí y Náutico Llevant</li>
+            <li><strong>1.8</strong> Actividades A1 a A4</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-800/70 p-5 rounded-2xl border border-slate-700">
+          <div class="flex items-center space-x-3 mb-4 border-b border-slate-700 pb-3">
+            <span class="bg-emerald-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+            <h3 class="font-bold text-slate-100">Bloque B05: Constitución y Tributos</h3>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li><strong>2.1</strong> Trámites según Forma Jurídica</li>
+            <li><strong>2.2</strong> Tramitación Telemática: CIRCE, DUE y PAE</li>
+            <li><strong>2.3</strong> El IAE y el Epígrafe Náutico (372.1)</li>
+            <li><strong>2.4</strong> Trámites Municipales (Licencias)</li>
+            <li><strong>2.5</strong> El Sistema Tributario Español</li>
+            <li><strong>2.6</strong> Clases de Tributos (Impuestos, Tasas)</li>
+            <li><strong>2.7</strong> Casos Varadero Levante y Soc. Civil</li>
+            <li><strong>2.8</strong> Actividades A1 a A5</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-800/70 p-5 rounded-2xl border border-slate-700">
+          <div class="flex items-center space-x-3 mb-4 border-b border-slate-700 pb-3">
+            <span class="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+            <h3 class="font-bold text-slate-100">Bloque B06: Fiscalidad y Facturas</h3>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li><strong>3.1</strong> Tratamiento Fiscal (IRPF vs Sociedades)</li>
+            <li><strong>3.2</strong> Atribución de Rentas en SC/CB</li>
+            <li><strong>3.3</strong> Mecánica del IVA (Repercutido/Soportado)</li>
+            <li><strong>3.4</strong> Reglamento de Facturación y Veri*Factu</li>
+            <li><strong>3.5</strong> Calendario Fiscal Trimestral y Anual</li>
+            <li><strong>3.6</strong> Casos Invernaje Náutico y Náutico Llevant</li>
+            <li><strong>3.7</strong> Actividades A1 a A7</li>
+            <li><strong>3.8</strong> Normativa y Recursos de Ampliación</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center text-xs text-slate-500 mt-2">
+        A continuación dará comienzo el desarrollo sistemático del Bloque B04 (Sesiones 1 y 2).
+      </div>
+    </div>
+
+    <!-- SLIDE 6: B04 - SESIÓN A - SER AUTÓNOMO Y CONCEPTO -->
+    <div class="slide" id="slide-6">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Sesión A: Ser Autónomo</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">El Trabajador Autónomo y el Régimen RETA</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+          <h3 class="text-lg font-bold text-blue-400 mb-3 flex items-center">
+            <i class="fa-solid fa-user-check mr-2"></i> Concepto Legal de Autónomo
+          </h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Persona física que realiza de forma <strong>habitual, personal y directa</strong> una actividad económica a título lucrativo, sin sujeción a un contrato de trabajo, aunque pueda dar empleo a otras personas.
+          </p>
+          <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-2">
+            <div class="font-bold text-amber-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Requisitos de inclusión en el RETA:</div>
+            <div>1. Ser mayor de 18 años.</div>
+            <div>2. Ejerce la actividad en territorio español.</div>
+            <div>3. Habitualidad: La ley presume la habitualidad si la persona es titular de un establecimiento abierto al público.</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-blue-400 mb-3 flex items-center">
+              <i class="fa-solid fa-id-card mr-2"></i> El Régimen RETA
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              <strong>RETA:</strong> Régimen Especial de Trabajadores Autónomos de la Seguridad Social. El alta es <strong>obligatoria</strong>.
+            </p>
+            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+              Se tramita de forma telemática en la sede electrónica de la Seguridad Social (<strong>Importass</strong>) de forma previa al inicio de la actividad.
+            </p>
+          </div>
+          <div class="bg-red-950/50 p-4 rounded-xl border border-red-800/60 text-xs text-red-200">
+            <strong>Consecuencias de empezar sin alta:</strong> Sanciones económicas graves, pérdida de bonificaciones (como la tarifa plana) y falta total de cobertura ante accidentes laborales.
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-xs text-slate-400 text-center">
+        Fundamento Legal: Ley 20/2007 (Estatuto del Trabajo Autónomo) y LGSS.
+      </div>
+    </div>
+
+    <!-- SLIDE 7: B04 - FIGURAS DEL AUTÓNOMO -->
+    <div class="slide" id="slide-7">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Clasificación Legal</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Tipologías de Trabajadores Autónomos</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-blue-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Figura</th>
+              <th class="p-3 font-bold">Rasgo que la define</th>
+              <th class="p-3 font-bold">Detalle / Particularidad Útil</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr class="hover:bg-slate-800/40">
+              <td class="p-3 font-bold text-white">Autónomo Individual</td>
+              <td class="p-3">Trabaja por su cuenta con varios clientes.</td>
+              <td class="p-3">Puede contratar empleados a su cargo. Respande con su patrimonio.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 bg-slate-900/40">
+              <td class="p-3 font-bold text-white">TRADE (Económicamente Dependiente)</td>
+              <td class="p-3">Obtiene al menos el 75 % de sus ingresos de un solo cliente.</td>
+              <td class="p-3">Requiere contrato escrito y registrado en el SEPE. Restricciones para contratar personal (salvo conciliación).</td>
+            </tr>
+            <tr class="hover:bg-slate-800/40">
+              <td class="p-3 font-bold text-white">Autónomo Societario</td>
+              <td class="p-3">Ejerce dirección/gerencia en sociedad mercantil o posee control efectivo.</td>
+              <td class="p-3">Tiene un porcentaje de deducción genérica de gastos del 3% en lugar del 7%.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/40 bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Familiar Colaborador</td>
+              <td class="p-3">Cónyuge o pariente hasta 2º grado que convive y trabaja habitualmente sin contrato laboral.</td>
+              <td class="p-3">Se da de alta en el RETA bajo la titularidad del autónomo principal.</td>
+            </tr>
+            <tr class="hover:bg-slate-800/40">
+              <td class="p-3 font-bold text-white">Socio de Soc. Civil o Com. de Bienes</td>
+              <td class="p-3">Aporta trabajo personal y habitual al negocio común.</td>
+              <td class="p-3">Se da de alta en el RETA a título personal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300">
+        <strong>Nota de aplicación al sector náutico:</strong> Es muy habitual encontrar patronos y mecánicos que prestan servicios a varaderos o empresas de chárter bajo la figura de autónomo individual o TRADE.
+      </div>
+    </div>
+
+    <!-- SLIDE 8: TRADE VS FALSO AUTÓNOMO -->
+    <div class="slide" id="slide-8">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Marco Laboral Comparativo</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">TRADE vs. Falso Autónomo: Diferencia Crítica</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-emerald-950/30 p-6 rounded-2xl border border-emerald-800/60 card-box">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-bold text-emerald-400">TRADE (Legal)</h3>
+            <span class="bg-emerald-900 text-emerald-300 text-xs px-2.5 py-1 rounded-full font-semibold">Figura Legal</span>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-3">
+            <li>• Factura $\ge 75\%$ a un único cliente.</li>
+            <li>• Mantiene su propia infraestructura y criterios organizativos.</li>
+            <li>• Asume el riesgo y ventura de sus operaciones.</li>
+            <li>• Contrato escrito registrado formalmente en el SEPE.</li>
+            <li>• Tiene derecho a 18 días hábiles de interrupción de actividad (vacaciones).</li>
+          </ul>
+        </div>
+
+        <div class="bg-red-950/30 p-6 rounded-2xl border border-red-800/60 card-box">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-bold text-red-400">Falso Autónomo (Ilegal)</h3>
+            <span class="bg-red-900 text-red-300 text-xs px-2.5 py-1 rounded-full font-semibold">Fraude Laboral</span>
+          </div>
+          <ul class="text-xs text-slate-300 space-y-3">
+            <li>• Trabaja bajo las órdenes, horario y medios de la empresa.</li>
+            <li>• No asume riesgo económico propio ni fija sus tarifas.</li>
+            <li>• Obligado a figurar como autónomo para evitar costes sociales a la empresa.</li>
+            <li>• Constituye un fraude a la Seguridad Social sancionado gravemente.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-xs text-slate-300 flex items-center space-x-3">
+        <i class="fa-solid fa-lightbulb text-amber-400 text-lg"></i>
+        <span><strong>Analogía explicativa:</strong> El falso autónomo es como llevar un uniforme de empleado pero sin contrato ni derechos laborales. El TRADE es un profesional independiente con un cliente mayoritario.</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: B04 - SESIÓN B - COTIZACIÓN POR RENDIMIENTOS REALES -->
+    <div class="slide" id="slide-9">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Sesión B: Cotización</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Sistema de Cotización por Ingresos Reales</h2>
+      </div>
+      <div class="space-y-4 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h3 class="text-base font-bold text-blue-400 mb-2">Funcionamiento desde el 1 de enero de 2023</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            La cuota mensual de autónomos ya no es una cantidad fija a elección libre sin límites. Depende directamente de los <strong>rendimientos netos reales</strong> obtenidos en el ejercicio de la actividad económica.
+          </p>
+        </div>
+
+        <div class="bg-slate-900 p-5 rounded-2xl border border-blue-500/30">
+          <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Esquema Simplificado de Cálculo del Rendimiento Neto Computable</h4>
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center font-mono text-sm text-blue-300">
+            $$\text{Rendimiento Neto Computable} = (\text{Ingresos} - \text{Gastos Deducibles}) - 7\% \text{ (Deducción Genérica)}$$
+          </div>
+          <div class="text-[11px] text-slate-400 mt-2">
+            *Nota: En el caso de autónomos societarios, la deducción genérica de gastos se reduce al 3%.
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-emerald-400 mb-1">Paso 1: Elección de Tramo</div>
+            <p class="text-slate-300">Con el rendimiento neto previsto se acude a la tabla oficial de tramos y se elige una base de cotización entre la mínima y la máxima del tramo.</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-emerald-400 mb-1">Paso 2: Aplicación del Tipo</div>
+            <p class="text-slate-300">Se aplica el tipo total de cotización a la base elegida. En 2026, el tipo total acumulado es del <strong>31,5%</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 text-xs text-slate-400 text-center">
+        <strong>Analogía de la Cuota:</strong> Funciona como una talla de ropa que se ajusta a lo que ganas en cada período.
+      </div>
+    </div>
+
+    <!-- SLIDE 10: TIPO DE COTIZACIÓN Y TARIFA PLANA -->
+    <div class="slide" id="slide-10">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Cálculo e Incentivos</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Cálculo de Cuota, Regularización y Tarifa Plana</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h3 class="text-base font-bold text-blue-400 mb-3">Fórmula General de Cuota</h3>
+          <div class="bg-slate-900 p-3 rounded-xl text-center font-mono text-xs text-blue-300 mb-3">
+            $$\text{Cuota Mensual} = \text{Base de Cotización} \times 31{,}5\%$$
+          </div>
+          <p class="text-xs text-slate-300 mb-3">
+            <strong>Desglose del tipo (31,5% en 2026):</strong> Incluye contingencias comunes, contingencias profesionales, cese de actividad, formación profesional y el MEI (Mecanismo de Equidad Intergeneracional, 0,9%).
+          </p>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+            <strong>Ejemplo:</strong> Para una base provisional de $1.000\,\text{€}$:
+            $$1.000 \times 31{,}5\% = 315\,\text{€/mes}$$
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-emerald-400 mb-2">Tarifa Plana e Incentivos</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              En la primera alta como autónomo se aplica una cuota reducida de <strong>80 € al mes</strong> durante los primeros 12 meses.
+            </p>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              <strong>Prórroga:</strong> Se puede mantener otros 12 meses si los rendimientos netos reales son inferiores al Salario Mínimo Interprofesional (SMI).
+            </p>
+          </div>
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-800/60 text-xs text-amber-200">
+            <strong>Regularización Anual:</strong> La Seguridad Social cruza datos con Hacienda al finalizar el año. Si cotizaste de más, te devuelve la diferencia; si cotizaste de menos, te la reclama.
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-xs text-slate-500 text-center">
+        Comprobar en la Sede de la Seguridad Social las tablas e importes vigentes de cada ejercicio.
+      </div>
+    </div>
+
+    <!-- SLIDE 11: CONTRATAR A LA PRIMERA PERSONA -->
+    <div class="slide" id="slide-11">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Bloque 1 · Obligaciones del Autónomo Empresario</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Obligaciones al Contratar a la Primera Persona</h2>
+      </div>
+      <div class="space-y-3 my-auto">
+        <p class="text-xs text-slate-300">
+          Al contratar a un trabajador, el autónomo adquiere la condición de empresario laboral y debe cumplir los siguientes pasos legales obligatorios:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 flex items-start space-x-3">
+            <span class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded">1</span>
+            <div class="text-xs">
+              <div class="font-bold text-white mb-1">Inscripción de Empresa y CCC</div>
+              <p class="text-slate-300">Inscribirse en la Seguridad Social como empresario y solicitar un Código de Cuenta de Cotización (CCC) previo a la contratación.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 flex items-start space-x-3">
+            <span class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded">2</span>
+            <div class="text-xs">
+              <div class="font-bold text-white mb-1">Alta Previa del Trabajador</div>
+              <p class="text-slate-300">Dar de alta a la persona trabajadora en la Seguridad Social <strong>antes</strong> de que comience a prestar sus servicios.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 flex items-start space-x-3">
+            <span class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded">3</span>
+            <div class="text-xs">
+              <div class="font-bold text-white mb-1">Contrato por Escrito</div>
+              <p class="text-slate-300">Formalizar el contrato por escrito. Tras la reforma laboral, la regla general es el contrato indefinido.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 flex items-start space-x-3">
+            <span class="bg-blue-600 text-white font-bold text-xs px-2.5 py-1 rounded">4</span>
+            <div class="text-xs">
+              <div class="font-bold text-white mb-1">Nóminas, Cotización e IRPF</div>
+              <p class="text-slate-300">Entregar recibo de salarios (nómina), cotizar por el trabajador e ingresar retenciones del IRPF (Modelo 111).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 flex justify-between items-center">
+          <span><i class="fa-solid fa-shield-halved text-emerald-400 mr-2"></i><strong>Convenio y Prevención:</strong> Debe aplicarse el convenio colectivo náutico y cumplir la Ley de Prevención de Riesgos Laborales (PRL).</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: CASO PRÁCTICO 1 - MARC SEGUÍ (SITUACIÓN) -->
+    <div class="slide" id="slide-12">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Caso Práctico Profesional 1 · Situación</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Marc Seguí: Servicio Móvil Náutico en Maó</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+        <div class="md:col-span-2 bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+          <h3 class="text-lg font-bold text-blue-400 mb-3"><i class="fa-solid fa-wrench mr-2"></i> Planteamiento del Caso</h3>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">
+            Marc es técnico en mantenimiento de embarcaciones y reside en Maó. Se establece como trabajador autónomo ofreciendo un servicio móvil de mantenimiento y reparación de motores fueraborda en los puertos de Maó, Ciutadella y Fornells.
+          </p>
+          <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-2 font-mono">
+            <div>• Estimación de Ingresos mensuales: 2.500 €</div>
+            <div>• Estimación de Gastos deducibles mensuales: 800 €</div>
+            <div>• Situación: Primera alta en el RETA</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-amber-400 mb-2"><i class="fa-solid fa-question-circle mr-2"></i> Cuestiones a Resolver</h3>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>1. ¿Cuál es el rendimiento neto computable de Marc?</li>
+              <li>2. ¿Qué ventaja obtiene con la Tarifa Plana el primer año?</li>
+              <li>3. ¿Cuánto ahorra en total durante el primer año?</li>
+            </ul>
+          </div>
+          <div class="text-[11px] text-slate-500 italic">
+            Analiza los datos antes de pasar a la solución en la siguiente diapositiva.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 13: CASO PRÁCTICO 1 - MARC SEGUÍ (SOLUCIÓN) -->
+    <div class="slide" id="slide-13">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Caso Práctico Profesional 1 · Solución</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Resolución del Caso: Marc Seguí</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse mb-4">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Paso</th>
+              <th class="p-3 font-bold">Cálculo Aplicado</th>
+              <th class="p-3 font-bold">Resultado</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">1. Rendimiento antes de deducción</td>
+              <td class="p-3 font-mono">2.500 € - 800 €</td>
+              <td class="p-3 font-mono text-emerald-300 font-bold">1.700 € / mes</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">2. Deducción genérica del 7 %</td>
+              <td class="p-3 font-mono">1.700 € × 7 %</td>
+              <td class="p-3 font-mono text-amber-300">119 € / mes</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">3. Rendimiento neto computable</td>
+              <td class="p-3 font-mono">1.700 € - 119 €</td>
+              <td class="p-3 font-mono text-blue-300 font-bold">1.581 € / mes</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">4. Aplicación de Tarifa Plana</td>
+              <td class="p-3">Primera alta RETA</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">80 € / mes (primeros 12 meses)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-xs text-slate-200">
+          <div class="font-bold text-blue-400 mb-1">Análisis de Ahorro Anual:</div>
+          <p>
+            Sin tarifa plana (suponiendo cuota normal con base de ejemplo de $1.000\,\text{€}$ $\rightarrow 315\,\text{€/mes}$), pagaría $3.780\,\text{€/año}$.<br>
+            Con tarifa plana de $80\,\text{€/mes}$, paga $960\,\text{€/año}$.<br>
+            <strong class="text-emerald-400">Ahorro total en el primer año: $3.780 - 960 = 2.820\,\text{€}$.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 14: CASO PRÁCTICO 2 - MANTENIMIENTO NÁUTICO LLEVANT -->
+    <div class="slide" id="slide-14">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Caso Práctico Profesional 2</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Mantenimiento Náutico Llevant S.C.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
+          <h3 class="text-lg font-bold text-blue-400 mb-3"><i class="fa-solid fa-users mr-2"></i> Situación Planteada</h3>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">
+            Biel y Laura, dos técnicos náuticos titulados, forman una <strong>Sociedad Civil</strong> en Ciutadella para ofrecer mantenimiento integral de barcos. Ambos aportan trabajo diario y directo en el taller.
+          </p>
+          <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-2">
+            <div>• Forma jurídica: Sociedad Civil.</div>
+            <div>• Socios: 2 socios trabajadores habituales.</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-emerald-400 mb-2"><i class="fa-solid fa-check-circle mr-2"></i> Solución Laboral</h3>
+            <ul class="text-xs text-slate-300 space-y-3">
+              <li>• <strong>Obligación RETA:</strong> Tanto Biel como Laura deben darse de alta en el RETA a título personal como socios de sociedad civil.</li>
+              <li>• <strong>Tarifa Plana:</strong> Ambos pueden solicitar la Tarifa Plana de 80 €/mes si cumple cada uno los requisitos de primera alta.</li>
+            </ul>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-amber-400">
+            <strong>Pregunta de Reflexión:</strong> ¿Qué ocurriría si contratan a un ayudante en temporada alta? (Deberán inscribir la sociedad como empresa y solicitar CCC).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 15: ACTIVIDAD A1 (B04) - CLASIFICA LA FIGURA -->
+    <div class="slide" id="slide-15">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A1 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A1 — Clasifica la Figura Laboral</h2>
+      </div>
+      <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 my-auto">
+        <p class="text-xs text-slate-300 mb-4">Relaciona cada supuesto del sector náutico con la figura legal correspondiente:</p>
+        <div class="space-y-3 text-xs">
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+            <span>1. Mecánico que factura el 85 % de sus ingresos a un único chárter de Ciutadella.</span>
+            <span class="text-slate-500 font-mono">[ ¿Figura? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+            <span>2. Técnico que trabaja con varios clientes y se da de alta solo.</span>
+            <span class="text-slate-500 font-mono">[ ¿Figura? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+            <span>3. Gerente que controla una SL de varadero.</span>
+            <span class="text-slate-500 font-mono">[ ¿Figura? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+            <span>4. Hermana que ayuda cada día en el taller familiar sin contrato.</span>
+            <span class="text-slate-500 font-mono">[ ¿Figura? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between items-center">
+            <span>5. Mecánico con horario fijo y herramientas del varadero, que factura solo al varadero.</span>
+            <span class="text-slate-500 font-mono">[ ¿Figura? ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 16: SOLUCIÓN ACTIVIDAD A1 (B04) -->
+    <div class="slide" id="slide-16">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A1</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A1</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Caso Planteado</th>
+              <th class="p-3 font-bold">Figura Correcta</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3">1. Mecánico que factura el 85 % a un único chárter de Ciutadella</td>
+              <td class="p-3 font-bold text-emerald-400">TRADE (Autónomo Dependiente)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3">2. Técnico que trabaja con varios clientes y se da de alta solo</td>
+              <td class="p-3 font-bold text-blue-400">Autónomo Individual</td>
+            </tr>
+            <tr>
+              <td class="p-3">3. Gerente que controla una SL de varadero</td>
+              <td class="p-3 font-bold text-purple-400">Autónomo Societario</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3">4. Hermana que ayuda cada día en el taller sin contrato</td>
+              <td class="p-3 font-bold text-amber-400">Familiar Colaborador</td>
+            </tr>
+            <tr>
+              <td class="p-3">5. Mecánico con horario e instrucciones fijas facturando solo a ese varadero</td>
+              <td class="p-3 font-bold text-red-400">Posible Falso Autónomo (Fraude)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 17: ACTIVIDAD A2 (B04) - TEST COTIZACIÓN -->
+    <div class="slide" id="slide-17">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A2 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A2 — Test de Cotización</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>1. Desde 2023, la cuota de autónomos depende de:</strong>
+          <div class="text-slate-400 mt-1">a) Un importe fijo igual para todos / b) Los rendimientos netos reales / c) El número de clientes.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>2. Con una base de 1.200 € y un tipo total del 31,5 %, la cuota mensual es:</strong>
+          <div class="text-slate-400 mt-1">a) 378 € / b) 120 € / c) 31,5 €.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>3. Si cotizaste de más y tus rendimientos fueron menores, la Seguridad Social:</strong>
+          <div class="text-slate-400 mt-1">a) No devuelve nada / b) Sanciona / c) Devuelve la diferencia tras regularizar.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>4. El alta en el RETA debe realizarse:</strong>
+          <div class="text-slate-400 mt-1">a) Antes de empezar la actividad / b) Tras emitir la primera factura / c) A final de año.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>5. Un TRADE es aquel que factura al menos el ___ % a un único cliente:</strong>
+          <div class="text-slate-400 mt-1">a) 50 % / b) 75 % / c) 100 %.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 18: SOLUCIÓN ACTIVIDAD A2 (B04) -->
+    <div class="slide" id="slide-18">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A2</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A2</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">1. Respuesta B:</strong> Los rendimientos netos reales.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">2. Respuesta A:</strong> 378 € ($1.200 \times 31{,}5\% = 378\,\text{€}$).
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">3. Respuesta C:</strong> Devuelve la diferencia tras la regularización anual.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">4. Respuesta A:</strong> Antes de empezar la actividad (alta previa en Importass).
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">5. Respuesta B:</strong> El 75 % de sus ingresos.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 19: ACTIVIDAD A3 (B04) - CONTRATO PATRÓN -->
+    <div class="slide" id="slide-19">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Actividad A3 · Trabajo en Grupo</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A3 — Contrato de un Patrón Autónomo</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto">
+        <div class="mb-4">
+          <span class="bg-purple-900 text-purple-300 text-xs font-bold px-3 py-1 rounded-full">Enunciado</span>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Un patrón profesional presta servicios de navegación y chárter a una empresa náutica de Menorca. En grupos de 3 o 4 alumnos:
+        </p>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc pl-5 mb-4">
+          <li>Analizad si cumple los requisitos para ser considerado TRADE.</li>
+          <li>Indicad qué cláusulas indispensables debe incluir su contrato por escrito.</li>
+          <li>Determinad si este patrón podría contratar a un marinero ayudante.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SLIDE 20: SOLUCIÓN ACTIVIDAD A3 (B04) -->
+    <div class="slide" id="slide-20">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A3</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A3</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 space-y-3 text-xs my-auto">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-blue-400">1. Condición de TRADE:</strong> Será TRADE si factura el 75% o más de sus ingresos a esa empresa náutica y no dispone de infraestructura propia sustitutiva.
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-blue-400">2. Cláusulas del Contrato:</strong> Debe formalizarse por escrito y registrarse en el SEPE. Debe constar la jornada, la interrupción anual de actividad (18 días) y las tarifas acordadas.
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-blue-400">3. Contratación de Personal:</strong> El TRADE <strong>no puede</strong> contratar empleados a su cargo, salvo en circunstancias tasadas por ley (conciliación familiar o causas de fuerza mayor).
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 21: ACTIVIDAD A4 (B04) - CÁLCULO EN CLASSROOM -->
+    <div class="slide" id="slide-21">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Actividad A4 · Para Classroom</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A4 — Cálculo Completo de Cuota</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto">
+        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+          Una autónoma dedicada al mantenimiento y reparación de fibra en embarcaciones presenta las siguientes cifras mensuales:
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl font-mono text-xs text-blue-300 mb-4">
+          • Facturación / Ingresos: 2.500 € / mes<br>
+          • Gastos deducibles: 800 € / mes
+        </div>
+        <div class="text-xs text-slate-300 space-y-2">
+          <div><strong>Tareas a entregar en Classroom:</strong></div>
+          <div>1. Calcula su rendimiento neto computable.</div>
+          <div>2. Aplica el tipo de cotización del 31,5 % para una base hipotética del tramo.</div>
+          <div>3. Calcula el ahorro total conseguido durante el primer año acogiéndose a la Tarifa Plana de 80 €.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 22: SOLUCIÓN ACTIVIDAD A4 (B04) -->
+    <div class="slide" id="slide-22">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A4</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A4</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-3">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono">
+          1) Rendimiento neto previo = 2.500 - 800 = 1.700 €<br>
+          Deducción 7% = 1.700 × 0,07 = 119 €<br>
+          <strong class="text-emerald-400">Rendimiento neto computable = 1.581 € / mes</strong>
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          2) Con una base de cotización de ejemplo de $1.000\,\text{€}$:
+          $$\text{Cuota General} = 1.000 \times 31{,}5\% = 315\,\text{€/mes}$$
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono">
+          3) Con Tarifa Plana paga 80 €/mes.<br>
+          Ahorro mensual = 315 - 80 = 235 €<br>
+          <strong class="text-emerald-400">Ahorro anual = 235 × 12 = 2.820 €</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 23: BLOQUE B05 - SESIÓN A - TRÁMITES DE CONSTITUCIÓN -->
+    <div class="slide" id="slide-23">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Bloque 2 · Sesión A: Abrir el Negocio</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Trámites de Constitución según la Forma Jurídica</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-[11px] text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-2.5 font-bold">Orden</th>
+              <th class="p-2.5 font-bold">Autónomo Individual</th>
+              <th class="p-2.5 font-bold">Sociedad Limitada (S.L.)</th>
+              <th class="p-2.5 font-bold">Sociedad Civil (S.C.)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-2.5 font-bold text-white">Paso 1</td>
+              <td class="p-2.5">Elegir epígrafe IAE.</td>
+              <td class="p-2.5">Certificación negativa del nombre en RMC.</td>
+              <td class="p-2.5">Contrato privado entre socios.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-2.5 font-bold text-white">Paso 2</td>
+              <td class="p-2.5">Declaración censal (Mod. 036 / 037).</td>
+              <td class="p-2.5">Escritura notarial y capital (desde 1 €).</td>
+              <td class="p-2.5">Solicitar NIF provisional y Mod. 036.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-white">Paso 3</td>
+              <td class="p-2.5">Alta en el RETA.</td>
+              <td class="p-2.5">Inscripción en Registro Mercantil.</td>
+              <td class="p-2.5">Alta de los socios en el RETA.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-2.5 font-bold text-white">Paso 4</td>
+              <td class="p-2.5">Declaración responsable municipal.</td>
+              <td class="p-2.5">NIF definitivo y Mod. 036.</td>
+              <td class="p-2.5">Declaración responsable municipal.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-white">Paso 5</td>
+              <td class="p-2.5">Alta de empleados (si procede).</td>
+              <td class="p-2.5">Alta de socios y empleados.</td>
+              <td class="p-2.5">Alta de empleados (si procede).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-3 bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+        <strong>Capital Mínimo S.L.:</strong> Tras la Ley 18/2022 (Crea y Crece), es posible constituir una S.L. con un capital social de <strong>1 €</strong>.
+      </div>
+    </div>
+
+    <!-- SLIDE 24: CIRCE, DUE Y PAE -->
+    <div class="slide" id="slide-24">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Bloque 2 · Tramitación Telemática</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Creación Ágil de Empresas: CIRCE, DUE y PAE</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <div class="text-emerald-400 text-xl font-bold mb-2"><i class="fa-solid fa-laptop-code mr-2"></i> CIRCE</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Centro de Información y Red de Creación de Empresas. Sistema de información telemático que conecta notarios, registros, AEAT y Seguridad Social.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <div class="text-blue-400 text-xl font-bold mb-2"><i class="fa-solid fa-file-signature mr-2"></i> DUE</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Documento Único Electrónico. Un único formulario que reemplaza a multitud de impresos individuales para simplificar la tramitación.
+          </p>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <div class="text-purple-400 text-xl font-bold mb-2"><i class="fa-solid fa-building-circle-check mr-2"></i> Puntos PAE</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Puntos de Atención al Emprendedor. Oficinas autorizadas que asesoran y realizan la tramitación telemática mediante el DUE.
+          </p>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-xs text-slate-300 flex items-center space-x-3">
+        <i class="fa-solid fa-car text-blue-400 text-xl"></i>
+        <span><strong>Analogía explicativa:</strong> La constitución de la empresa es como pasar la ITV antes de circular: sin tramitar el DUE y las altas, no se puede operar legalmente.</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 25: EL IAE Y TRÁMITES MUNICIPALES -->
+    <div class="slide" id="slide-25">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Bloque 2 · Clasificación de Actividad y Licencias</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">El IAE y la Licencia Municipal en Menorca</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h3 class="text-base font-bold text-emerald-400 mb-2">Impuesto sobre Actividades Económicas (IAE)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3">
+            Clasifica la actividad mediante epígrafes. Para reparación y mantenimiento de buques y embarcaciones, el epígrafe de referencia es el <strong>372.1</strong>.
+          </p>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+            <strong>Exención del IAE:</strong> Las personas físicas están siempre exentas de pago. Las sociedades solo pagan si su cifra de negocios es de $1.000.000\,\text{€}$ o más.<br>
+            <span class="text-amber-400">*Estar exento no libera de declarar el epígrafe en el alta censal (Mod. 036/037).</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-blue-400 mb-2">Trámites Municipales de Apertura</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-3">
+              Para abrir una nave, varadero o taller en los municipios de Menorca (Maó, Ciutadella, Alaior, Es Castell...) es indispensable comunicar la actividad al ayuntamiento.
+            </p>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Vía habitual: <strong>Declaración responsable de actividad</strong> acompañada de memoria técnica y proyecto de prevención de incendios y vertidos.
+            </p>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-400">
+            Comprobar las ordenanzas urbanísticas municipales antes de firmar cualquier alquiler de local.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 26: BLOQUE B05 - SESIÓN B - EL SISTEMA TRIBUTARIO -->
+    <div class="slide" id="slide-26">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Bloque 2 · Sesión B: Sistema Tributario</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">El Sistema Tributario Español y sus Clases</h2>
+      </div>
+      <div class="space-y-4 my-auto">
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 text-xs text-slate-300">
+          <strong>Finalidad de los Tributos:</strong> Financiar las necesidades de gasto público (sanidad, educación, carreteras, puertos, salvamento marítimo). La Constitución establece que todos contribuirán según su capacidad económica.
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-emerald-400 mb-1">Impuestos</div>
+            <p class="text-slate-300">Exigidos sin contraprestación directa. Gravan la capacidad económica (renta, patrimonio o consumo).</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-blue-400 mb-1">Tasas</div>
+            <p class="text-slate-300">Se pagan por un servicio o aprovechamiento del dominio público (ej. Tasa de basuras del taller, ocupación de puerto).</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-purple-400 mb-1">Contribuciones Especiales</div>
+            <p class="text-slate-300">Se pagan cuando una obra pública beneficia de forma directa el valor de los bienes del contribuyente.</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-300">
+          <strong>Diferencia Fundamental:</strong> Los impuestos directos gravan la posesión de renta/patrimonio (IRPF, IS). Los impuestos indirectos gravan el consumo o la circulación de bienes (IVA).
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 27: PRINCIPALES TRIBUTOS DEL SECTOR NÁUTICO -->
+    <div class="slide" id="slide-27">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Bloque 2 · Mapa Fiscal</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Principales Impuestos en la Empresa Náutica</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Impuesto</th>
+              <th class="p-3 font-bold">Tipo</th>
+              <th class="p-3 font-bold">Cobrado por</th>
+              <th class="p-3 font-bold">Qué grava concretamente</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">IRPF</td>
+              <td class="p-3 text-blue-400 font-semibold">Directo</td>
+              <td class="p-3">Estado (AEAT)</td>
+              <td class="p-3">Renta obtenida por personas físicas y autónomos.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Impuesto sobre Sociedades</td>
+              <td class="p-3 text-blue-400 font-semibold">Directo</td>
+              <td class="p-3">Estado (AEAT)</td>
+              <td class="p-3">Beneficio neto obtenido por sociedades mercantiles.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">IVA</td>
+              <td class="p-3 text-purple-400 font-semibold">Indirecto</td>
+              <td class="p-3">Estado (AEAT)</td>
+              <td class="p-3">El consumo final en ventas y reparaciones.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">IAE</td>
+              <td class="p-3 text-blue-400 font-semibold">Directo</td>
+              <td class="p-3">Ayuntamiento</td>
+              <td class="p-3">El mero ejercicio de una actividad económica.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">IBI</td>
+              <td class="p-3 text-blue-400 font-semibold">Directo</td>
+              <td class="p-3">Ayuntamiento</td>
+              <td class="p-3">La titularidad de la nave o local comercial.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 28: CASO PRÁCTICO 3 - VARADERO LEVANTE S.L. -->
+    <div class="slide" id="slide-28">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Caso Práctico Profesional 3</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Varadero Levante S.L. (Polígono de Maó)</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+          <h3 class="text-base font-bold text-emerald-400 mb-3"><i class="fa-solid fa-ship mr-2"></i> Constitución de la Sociedad</h3>
+          <p class="text-xs text-slate-300 leading-relaxed mb-3">
+            Tres técnicos proyectan abrir un varadero para invernaje, mantenimiento de fibra y pintura en el polígono de Maó.
+          </p>
+          <div class="space-y-2 text-xs">
+            <div class="bg-slate-900 p-2.5 rounded-lg">1. Solicitar certificación negativa de nombre al RMC.</div>
+            <div class="bg-slate-900 p-2.5 rounded-lg">2. Aportar capital social (3.000 € acordados).</div>
+            <div class="bg-slate-900 p-2.5 rounded-lg">3. Acudir a un PAE y tramitar la firma con el DUE.</div>
+            <div class="bg-slate-900 p-2.5 rounded-lg">4. Presentar declaración responsable en el Ayuntamiento de Maó.</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-blue-400 mb-3"><i class="fa-solid fa-coins mr-2"></i> Tratamiento Fiscal</h3>
+            <ul class="text-xs text-slate-300 space-y-2">
+              <li>• Sus beneficios tributarán por el <strong>Impuesto sobre Sociedades</strong>.</li>
+              <li>• Exenta de pagar IAE mientras su cifra de negocios sea inferior a 1.000.000 €.</li>
+              <li>• Los socios que trabajen en el taller se darán de alta en el RETA.</li>
+            </ul>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl text-xs text-slate-400">
+            Forma idónea cuando el volumen de facturación y el riesgo económico de las embarcaciones tratadas son elevados.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 29: CASO PRÁCTICO 4 - SOCIEDAD CIVIL (NÁUTICO LLEVANT) -->
+    <div class="slide" id="slide-29">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Caso Práctico Profesional 4</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Mantenimiento Náutico Llevant S.C. (Análisis Fiscal)</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto space-y-4">
+        <h3 class="text-base font-bold text-emerald-400">Tributación de las Sociedades Civiles</h3>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Biel y Laura firman un contrato privado de Sociedad Civil para su taller en Ciutadella. Presentan el modelo 036 para solicitar NIF y comunicar el inicio de actividad.
+        </p>
+
+        <div class="bg-slate-900 p-4 rounded-xl border border-amber-500/40 text-xs text-slate-200">
+          <div class="font-bold text-amber-400 mb-1"><i class="fa-solid fa-exclamation-circle mr-1"></i> Punto Clave sobre la Tributación de la Sociedad Civil:</div>
+          <p>
+            Al tener un <strong>objeto mercantil</strong> (prestación comercial de servicios de mantenimiento), la Sociedad Civil tributa de forma directa por el <strong>Impuesto sobre Sociedades</strong> (y no por IRPF en atribución de rentas).
+          </p>
+        </div>
+
+        <div class="text-xs text-slate-400">
+          *Nota: Si la entidad no tuviera objeto mercantil (como una comunidad de bienes agrícola o patrimonial), tributaría por atribución de rentas en el IRPF de cada socio.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 30: ACTIVIDAD A1 (B05) - ORDENA TRÁMITES SL -->
+    <div class="slide" id="slide-30">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A1 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A1 — Ordena los Trámites de una SL</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto">
+        <p class="text-xs text-slate-300 mb-4">Ordena cronológicamente los siguientes pasos obligatorios para constituir una Sociedad Limitada:</p>
+        <div class="space-y-2 text-xs">
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">[ ] Escritura pública ante notario.</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">[ ] Declaración responsable en el ayuntamiento.</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">[ ] Solicitud de certificación negativa de denominación en el RMC.</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">[ ] Inscripción en el Registro Mercantil.</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">[ ] Declaración censal (Mod. 036) con el NIF definitivo.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 31: SOLUCIÓN ACTIVIDAD A1 (B05) -->
+    <div class="slide" id="slide-31">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A1</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A1</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto">
+        <div class="space-y-3 text-xs">
+          <div class="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 flex items-center space-x-3">
+            <span class="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded">1</span>
+            <span>Certificación negativa de denominación en el Registro Mercantil Central.</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 flex items-center space-x-3">
+            <span class="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded">2</span>
+            <span>Otorgamiento de escritura pública ante notario.</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 flex items-center space-x-3">
+            <span class="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded">3</span>
+            <span>Inscripción en el Registro Mercantil Provincial.</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 flex items-center space-x-3">
+            <span class="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded">4</span>
+            <span>Declaración censal (Modelo 036) para NIF definitivo y alta de actividad.</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-emerald-500/40 flex items-center space-x-3">
+            <span class="bg-emerald-600 text-white font-bold px-2 py-0.5 rounded">5</span>
+            <span>Presentación de declaración responsable o solicitud de licencia en el ayuntamiento.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 32: ACTIVIDAD A2 (B05) - TEST TRIBUTOS -->
+    <div class="slide" id="slide-32">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A2 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A2 — Test del Sistema Tributario</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>1. El IVA es un impuesto:</strong>
+          <div class="text-slate-400 mt-1">a) Directo / b) Indirecto / c) Una Tasa municipal.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>2. La tasa de basuras de la nave comercial es un:</strong>
+          <div class="text-slate-400 mt-1">a) Tributo por un servicio concreto / b) Impuesto directo sobre la renta / c) Contribución especial.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>3. El Impuesto sobre Actividades Económicas (IAE) lo gestiona/cobra:</strong>
+          <div class="text-slate-400 mt-1">a) La Seguridad Social / b) La Agencia Tributaria / c) El Ayuntamiento.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>4. Una persona física que se da de alta como autónoma:</strong>
+          <div class="text-slate-400 mt-1">a) Paga siempre IAE / b) Está exenta de pagar IAE pero debe indicar su epígrafe / c) No declara epígrafe.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>5. Capital social mínimo de una S.L. tras la Ley 18/2022 (Crea y Crece):</strong>
+          <div class="text-slate-400 mt-1">a) 1 € / b) 3.000 € / c) 60.000 €.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 33: SOLUCIÓN ACTIVIDAD A2 (B05) -->
+    <div class="slide" id="slide-33">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A2</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A2</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">1. Respuesta B:</strong> Indirecto (grava el consumo).
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">2. Respuesta A:</strong> Tributo que se paga por la prestación de un servicio público concreto.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">3. Respuesta C:</strong> El Ayuntamiento.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">4. Respuesta B:</strong> Está exenta del pago del IAE, pero debe indicar obligatoriamente el epígrafe de actividad.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">5. Respuesta A:</strong> 1 € (con obligación de reserva legal).
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 34: ACTIVIDAD A3 (B05) - CLASIFICA TRIBUTOS -->
+    <div class="slide" id="slide-34">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A3 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A3 — Clasifica los Tributos</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-3">
+        <p class="text-slate-300">Clasifica IRPF, Impuesto sobre Sociedades, IVA, IAE e IBI indicando si es Directo o Indirecto y qué administración lo recauda:</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">1. IRPF $\rightarrow$ [¿Tipo?] | [¿Administración?]</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">2. Impuesto Sociedades $\rightarrow$ [¿Tipo?] | [¿Administración?]</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">3. IVA $\rightarrow$ [¿Tipo?] | [¿Administración?]</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">4. IAE $\rightarrow$ [¿Tipo?] | [¿Administración?]</div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">5. IBI $\rightarrow$ [¿Tipo?] | [¿Administración?]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 35: SOLUCIÓN ACTIVIDAD A3 (B05) -->
+    <div class="slide" id="slide-35">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A3</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A3</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Impuesto</th>
+              <th class="p-3 font-bold">Tipo</th>
+              <th class="p-3 font-bold">Administración Recaudadora</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">IRPF</td>
+              <td class="p-3 text-blue-400">Directo</td>
+              <td class="p-3">Estado (AEAT)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Impuesto sobre Sociedades</td>
+              <td class="p-3 text-blue-400">Directo</td>
+              <td class="p-3">Estado (AEAT)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">IVA</td>
+              <td class="p-3 text-purple-400">Indirecto</td>
+              <td class="p-3">Estado (AEAT)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">IAE</td>
+              <td class="p-3 text-blue-400">Directo</td>
+              <td class="p-3">Ayuntamiento local</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">IBI</td>
+              <td class="p-3 text-blue-400">Directo</td>
+              <td class="p-3">Ayuntamiento local</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 36: ACTIVIDAD A4 (B05) - MODELO 037 -->
+    <div class="slide" id="slide-36">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Actividad A4 · De Aula</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A4 — Simulación del Modelo 037</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-4">
+        <div class="mb-2">
+          <span class="bg-blue-900 text-blue-300 font-bold px-3 py-1 rounded-full">Caso de Aula</span>
+        </div>
+        <p class="text-slate-300 leading-relaxed">
+          Un electricista naval autónomo va a iniciar su actividad comercial en el puerto de Ciutadella. Simula en la plantilla de trabajo la cumplimentación de los apartados básicos del <strong>Modelo 037 (Declaración Censal Simplificada)</strong>.
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2 font-mono">
+          <div>1. Causa de presentación: Alta en el censo.</div>
+          <div>2. Identificación y domicilio fiscal.</div>
+          <div>3. Epígrafe IAE y lugar de la actividad.</div>
+          <div>4. Régimen del IVA e IRPF aplicable.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 37: SOLUCIÓN ACTIVIDAD A4 (B05) -->
+    <div class="slide" id="slide-37">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A4</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A4</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-3">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-emerald-400">Página 1 - Causas:</strong> Marcar casilla 111 (Alta en el censo de empresarios, profesionales y retenedores).
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-emerald-400">Página 2 - Actividad:</strong> Indicar la descripción de electricidad naval y el epígrafe IAE correspondiente (sección 1).
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          <strong class="text-emerald-400">Página 3 - IRPF e IVA:</strong> En IRPF marcar Estimación Directa Simplificada. En IVA seleccionar Régimen General.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 38: ACTIVIDAD A5 (B05) - COMPARATIVA FORNELLS -->
+    <div class="slide" id="slide-38">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Actividad A5 · Para Classroom</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A5 — Comparativa Autónomo vs. S.L.</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-4">
+        <p class="text-slate-300 leading-relaxed">
+          Dos técnicos náuticos proyectan abrir un centro de mantenimiento en Fornells. Dudan entre establecerse como Autónomos (Sociedad Civil) o constituir una Sociedad Limitada (S.L.).
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+          <div><strong>Redacta una tabla comparativa en Classroom considerando:</strong></div>
+          <div>1. Responsabilidad patrimonial ante deudas o accidentes.</div>
+          <div>2. Trámites de constitución y costes iniciales.</div>
+          <div>3. Tributación de los beneficios (IRPF vs. Impuesto sobre Sociedades).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 39: SOLUCIÓN ACTIVIDAD A5 (B05) -->
+    <div class="slide" id="slide-39">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A5</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A5</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-[11px] text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Criterio</th>
+              <th class="p-3 font-bold">Autónomos / Soc. Civil</th>
+              <th class="p-3 font-bold">Sociedad Limitada (S.L.)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">Responsabilidad</td>
+              <td class="p-3 text-red-400 font-semibold">Ilimitada (patrimonio personal)</td>
+              <td class="p-3 text-emerald-400 font-semibold">Limitada al capital aportado</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Trámites y Costes</td>
+              <td class="p-3">Sencillos, rápidos y sin gastos de notaría.</td>
+              <td class="p-3">Requiere notaría, registro mercantil y escritura.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Tributación</td>
+              <td class="p-3">IRPF progresivo según rendimiento.</td>
+              <td class="p-3">Impuesto Sociedades (tipo general 25%).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 40: BLOQUE B06 - SESIÓN A - TRATAMIENTO FISCAL E IVA -->
+    <div class="slide" id="slide-40">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Bloque 3 · Sesión A: Fiscalidad y Facturación</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Tratamiento Fiscal por Forma Jurídica</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-purple-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Forma Jurídica</th>
+              <th class="p-3 font-bold">Impuesto sobre Beneficios</th>
+              <th class="p-3 font-bold">Pagos a Cuenta Trimestrales</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">Autónomo Individual</td>
+              <td class="p-3">IRPF (escala progresiva)</td>
+              <td class="p-3 font-mono">Modelo 130 (o 131 en módulos)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Comunidad de Bienes</td>
+              <td class="p-3">IRPF (Atribución de rentas en cada socio)</td>
+              <td class="p-3">Cada socio realiza su pago fraccionado</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Sociedad Civil con objeto mercantil</td>
+              <td class="p-3">Impuesto sobre Sociedades (25 %)</td>
+              <td class="p-3 font-mono">Modelo 202 (Abril, Octubre, Diciembre)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Sociedad Limitada (S.L.)</td>
+              <td class="p-3">Impuesto sobre Sociedades (25 %)</td>
+              <td class="p-3 font-mono">Modelo 202 (Abril, Octubre, Diciembre)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+        <strong>Conclusión de diseño fiscal:</strong> Los autónomos responden en el IRPF por la totalidad del rendimiento. Las sociedades tributan a un tipo fijo en el Impuesto sobre Sociedades.
+      </div>
+    </div>
+
+    <!-- SLIDE 41: EL FUNCIONAMIENTO DEL IVA -->
+    <div class="slide" id="slide-41">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Bloque 3 · Impuestos Indirectos</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Funcionamiento del IVA en el Sector Náutico</h2>
+      </div>
+      <div class="space-y-4 my-auto">
+        <p class="text-xs text-slate-300">
+          El IVA es un impuesto indirecto sobre el consumo. El empresario actúa como un mero recaudador intermediario entre el cliente final y la Agencia Tributaria.
+        </p>
+
+        <div class="bg-slate-900 p-5 rounded-2xl border border-purple-500/30 text-center">
+          <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Fórmula de Liquidación Trimestral del IVA (Modelo 303)</div>
+          <div class="font-mono text-sm text-purple-300 font-bold">
+            $$\text{Resultado del IVA} = \text{IVA Repercutido (Cobrado)} - \text{IVA Soportado Deducible (Pagado)}$$
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-emerald-400 mb-1">IVA Repercutido</div>
+            <p class="text-slate-300">El IVA que cobras a tus clientes en las facturas. <strong>No es tu dinero:</strong> constituye una deuda con la Hacienda Pública.</p>
+          </div>
+          <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+            <div class="font-bold text-blue-400 mb-1">IVA Soportado Deducible</div>
+            <p class="text-slate-300">El IVA que pagas a tus proveedores de repuestos, suministros o alquileres. Solo es deducible si el gasto está afecto a la actividad.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 text-xs text-slate-400 text-center">
+        <strong>Tipo General del IVA en el Sector Náutico:</strong> $21\%$ (aplicable a reparaciones, invernaje, piezas de recambio y alquiler de amarres).
+      </div>
+    </div>
+
+    <!-- SLIDE 42: REGLAMENTO DE FACTURACIÓN Y VERI*FACTU -->
+    <div class="slide" id="slide-42">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Bloque 3 · Normativa de Facturación</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Factura Ordinaria, Simplificada y Veri*Factu</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs space-y-3">
+          <h3 class="text-base font-bold text-purple-400 mb-1">Tipos de Factura</h3>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <strong class="text-white">Factura Ordinaria:</strong> Datos completos del emisor y cliente (NIF, domicilio), desglose de base, tipo e IVA. Obligatoria para ventas a empresas o profesionales. Plazo: antes del día 16 del mes siguiente.
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <strong class="text-white">Factura Simplificada:</strong> Sustituye al antiguo tique. Datos simplificados. Límite general de <strong>400 €</strong> (con IVA incluido) o hasta 3.000 € en supuestos específicos.
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-blue-400 mb-2"><i class="fa-solid fa-server mr-2"></i> El Sistema Veri*Factu</h3>
+            <p class="text-slate-300 leading-relaxed mb-3">
+              Sistema informático de facturación que garantiza la inalterabilidad, trazabilidad e integridad de los registros de facturación expedidos.
+            </p>
+            <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-slate-300">
+              <strong>Calendario de Implantación:</strong><br>
+              • 1 de enero de 2027: Sujetos del Impuesto sobre Sociedades.<br>
+              • 1 de julio de 2027: Resto de contribuyentes (Autónomos).
+            </div>
+          </div>
+          <div class="text-[11px] text-slate-500 italic mt-2">
+            Comprobar la convalidación de fechas en la sede electrónica de la AEAT.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 43: BLOQUE B06 - SESIÓN B - CALENDARIO FISCAL TRIMESTRAL -->
+    <div class="slide" id="slide-43">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Bloque 3 · Sesión B: Calendario Fiscal</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">El Calendario Fiscal: Modelos y Plazos</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-purple-400 border-b border-slate-700">
+              <th class="p-2.5 font-bold">Modelo</th>
+              <th class="p-2.5 font-bold">Impuesto o Concepto que liquida</th>
+              <th class="p-2.5 font-bold">Plazo Habitual de Presentación</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-2.5 font-bold text-white font-mono">Modelo 303</td>
+              <td class="p-2.5">Autoliquidación trimestral del IVA.</td>
+              <td class="p-2.5">Hasta el 20 de abril, julio y octubre. 4T hasta el 30 de enero.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-2.5 font-bold text-white font-mono">Modelo 130 / 131</td>
+              <td class="p-2.5">Pago fraccionado a cuenta del IRPF del autónomo (20 %).</td>
+              <td class="p-2.5">Hasta el 20 de abril, julio y octubre. 4T hasta el 30 de enero.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-white font-mono">Modelo 111</td>
+              <td class="p-2.5">Retenciones del IRPF a trabajadores y profesionales.</td>
+              <td class="p-2.5">Hasta el 20 de abril, julio y octubre. 4T hasta el 20 de enero.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-2.5 font-bold text-white font-mono">Modelo 115</td>
+              <td class="p-2.5">Retenciones del IRPF por alquiler del local/nave (19 %).</td>
+              <td class="p-2.5">Hasta el 20 de abril, julio y octubre. 4T hasta el 20 de enero.</td>
+            </tr>
+            <tr>
+              <td class="p-2.5 font-bold text-white font-mono">Modelo 202</td>
+              <td class="p-2.5">Pago fraccionado del Impuesto sobre Sociedades.</td>
+              <td class="p-2.5">Hasta el 20 de abril, octubre y diciembre.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-3 bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+        <strong>Regla del día hábil:</strong> Si el día 20 o vencimiento cae en sábado, domingo o festivo, el plazo se desplaza al día hábil inmediatamente posterior.
+      </div>
+    </div>
+
+    <!-- SLIDE 44: DECLARACIONES ANUALES Y RESÚMENES -->
+    <div class="slide" id="slide-44">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Bloque 3 · Declaraciones Anuales</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Resúmenes Anuales y Declaraciones Especiales</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs space-y-3">
+          <h3 class="text-base font-bold text-purple-400 mb-1">Resúmenes Informativos Anuales</h3>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <strong class="text-white font-mono">Modelo 390:</strong> Resumen anual del IVA (se presenta en el mes de enero).
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <strong class="text-white font-mono">Modelos 190 y 180:</strong> Resúmenes anuales de retenciones a empleados y retenciones por alquileres.
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+            <strong class="text-white font-mono">Modelo 347:</strong> Declaración anual de operaciones con terceras personas que superen en su conjunto los <strong>3.005,06 €</strong> en el año (se presenta en febrero).
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs flex flex-col justify-between">
+          <div>
+            <h3 class="text-base font-bold text-blue-400 mb-2">Declaraciones Anuales Definitivas</h3>
+            <div class="space-y-3">
+              <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+                <strong class="text-white font-mono">Modelo 100 (IRPF / Renta):</strong> Campaña anual para personas físicas y autónomos (abril a junio).
+              </div>
+              <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+                <strong class="text-white font-mono">Modelo 200 (Impuesto Sociedades):</strong> Declaración anual de Sociedades (hasta el 25 de julio).
+              </div>
+            </div>
+          </div>
+          <div class="bg-amber-950/40 p-3 rounded-xl border border-amber-800/60 text-xs text-amber-200 mt-2">
+            <strong>Atención:</strong> Un modelo informativo no suele suponer un pago directo, pero su omisión conlleva sanciones pecuniarias elevadas.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 45: CASO PRÁCTICO 5 - INVERNAJE NÁUTICO MENORCA -->
+    <div class="slide" id="slide-45">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Caso Práctico Profesional 5 · Situación y Datos</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Invernaje Náutico Menorca (Alaior - 1er Trimestre)</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-auto">
+        <div class="md:col-span-2 bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs space-y-3">
+          <h3 class="text-base font-bold text-purple-400 mb-2"><i class="fa-solid fa-calculator mr-2"></i> Operaciones del 1er Trimestre</h3>
+          <p class="text-slate-300">Autónomo dedicado a la custodia y mantenimiento invernal de embarcaciones en una nave en Alaior:</p>
+          <div class="bg-slate-900 p-3 rounded-xl font-mono text-slate-300 space-y-1">
+            <div>• Facturación del trimestre: 12.000 € (+ 21% IVA = 2.520 €)</div>
+            <div>• Compras de lonas y productos: 5.000 € (+ 21% IVA = 1.050 €)</div>
+            <div>• Alquiler de almacén: 800 €/mes × 3 = 2.400 € (+ 21% IVA = 504 €)</div>
+            <div>• Retención sobre alquiler (19%): 2.400 € × 19% = 456 €</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-bold text-amber-400 mb-2">Cuestiones Fiscales</h3>
+            <p class="text-xs text-slate-300 mb-3">Calcula los modelos 303, 115 y 130 correspondientes al primer trimestre y determina el vencimiento.</p>
+          </div>
+          <div class="text-[11px] text-slate-500 italic">
+            Analiza las cifras antes de pasar a la solución.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 46: CASO PRÁCTICO 5 - RESOLUCIÓN CÁLCULOS -->
+    <div class="slide" id="slide-46">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Caso Práctico Profesional 5 · Liquidación</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Resolución Fiscal: Invernaje Náutico Menorca</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse mb-4">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Modelo</th>
+              <th class="p-3 font-bold">Cálculo Desarrollado</th>
+              <th class="p-3 font-bold">Resultado a Ingresar</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white font-mono">Modelo 303 (IVA)</td>
+              <td class="p-3 font-mono">IVA Repercutido (2.520 €) - IVA Soportado Deducible (1.050 € + 504 €)</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">966 €</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white font-mono">Modelo 115 (Alquiler)</td>
+              <td class="p-3 font-mono">2.400 € × 19 % de retención practicada al arrendador</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">456 €</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white font-mono">Modelo 130 (IRPF)</td>
+              <td class="p-3 font-mono">Rendimiento neto: 12.000 € - (5.000 € + 2.400 €) = 4.600 €<br>Pago fraccionado: 4.600 € × 20 %</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">920 €</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 text-xs text-slate-200">
+          <strong>Plazo de presentación e ingreso:</strong> Hasta el <strong>20 de abril</strong>. Cada mes, el propietario de la nave recibe $800\,\text{€} + 168\,\text{€ (IVA)} - 152\,\text{€ (Retención)} = 816\,\text{€}$.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 47: CASO PRÁCTICO 6 - SOCIEDAD CIVIL (MANTENIMIENTO LLEVANT) -->
+    <div class="slide" id="slide-47">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Caso Práctico Profesional 6</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Mantenimiento Náutico Llevant S.C. (1er Trimestre)</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 text-xs mb-4">
+          <h3 class="text-base font-bold text-purple-400 mb-2">Datos de Facturación de la Sociedad</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono">
+            <div class="bg-slate-900 p-3 rounded-lg">• Facturación: 18.000 € (+21% IVA = 3.780 €)</div>
+            <div class="bg-slate-900 p-3 rounded-lg">• Repuestos: 7.000 € (+21% IVA = 1.470 €)</div>
+            <div class="bg-slate-900 p-3 rounded-lg">• Alquiler nave: 3.000 € (+21% IVA = 630 €)</div>
+          </div>
+        </div>
+
+        <table class="w-full text-left text-xs text-slate-300 border-collapse mb-4">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Modelo</th>
+              <th class="p-3 font-bold">Cálculo Aplicado</th>
+              <th class="p-3 font-bold">Resultado</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white font-mono">Modelo 303 (IVA)</td>
+              <td class="p-3 font-mono">3.780 € - (1.470 € + 630 €)</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">1.680 € a ingresar</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white font-mono">Modelo 115 (Alquiler)</td>
+              <td class="p-3 font-mono">3.000 € × 19 % de retención</td>
+              <td class="p-3 font-mono text-emerald-400 font-bold">570 € a ingresar</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-xs text-amber-300">
+          <strong>Diferencia clave con el autónomo:</strong> La sociedad <strong>no presenta el Modelo 130</strong> de IRPF porque tributa en Sociedades. Los pagos a cuenta se realizarán mediante el <strong>Modelo 202</strong> en abril, octubre y diciembre.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 48: ACTIVIDAD A1 (B06) - CLASIFICA TRIBUTACIÓN -->
+    <div class="slide" id="slide-48">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A1 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A1 — Clasificación del Tratamiento Fiscal</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-3">
+        <p class="text-slate-300">Asigna a cada entidad el impuesto que grava sus beneficios (IRPF o Impuesto sobre Sociedades):</p>
+        <div class="space-y-2">
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between">
+            <span>1. Autónomo Individual</span>
+            <span class="font-mono text-slate-500">[ ¿Impuesto? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between">
+            <span>2. Comunidad de Bienes (atribución)</span>
+            <span class="font-mono text-slate-500">[ ¿Impuesto? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between">
+            <span>3. Sociedad Civil con objeto mercantil</span>
+            <span class="font-mono text-slate-500">[ ¿Impuesto? ]</span>
+          </div>
+          <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 flex justify-between">
+            <span>4. Sociedad Limitada (S.L.)</span>
+            <span class="font-mono text-slate-500">[ ¿Impuesto? ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 49: SOLUCIÓN ACTIVIDAD A1 (B06) -->
+    <div class="slide" id="slide-49">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A1</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A1</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-emerald-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Forma Jurídica</th>
+              <th class="p-3 font-bold">Impuesto Aplicable</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">1. Autónomo Individual</td>
+              <td class="p-3 font-bold text-blue-400">IRPF (Modelo 130)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">2. Comunidad de Bienes</td>
+              <td class="p-3 font-bold text-blue-400">IRPF (Atribución de rentas a cada comunero)</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">3. Sociedad Civil mercantil</td>
+              <td class="p-3 font-bold text-purple-400">Impuesto sobre Sociedades (Modelo 202)</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">4. Sociedad Limitada (S.L.)</td>
+              <td class="p-3 font-bold text-purple-400">Impuesto sobre Sociedades (Modelo 202)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 50: ACTIVIDAD A2 (B06) - TEST FACTURACIÓN -->
+    <div class="slide" id="slide-50">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividad A2 · Autocorregible</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A2 — Test de Facturación</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>1. Límite general para emitir factura simplificada:</strong>
+          <div class="text-slate-400 mt-1">a) 400 € IVA incluido / b) 1.000 € / c) 3.000 € en todo caso.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>2. Una factura para una empresa que necesita deducir el IVA debe contener:</strong>
+          <div class="text-slate-400 mt-1">a) Solo el importe / b) NIF y datos completos del cliente / c) No requiere datos.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>3. La factura a otra empresa debe expedirse antes del día:</strong>
+          <div class="text-slate-400 mt-1">a) 16 del mes siguiente / b) 30 del mismo mes / c) 5 del mes siguiente.</div>
+        </div>
+        <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+          <strong>4. El IVA repercutido cobrado al cliente representa:</strong>
+          <div class="text-slate-400 mt-1">a) Un ingreso propio / b) Una deuda con Hacienda / c) Un gasto deducible.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 51: SOLUCIÓN ACTIVIDAD A2 (B06) -->
+    <div class="slide" id="slide-51">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A2</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A2</h2>
+      </div>
+      <div class="space-y-3 my-auto text-xs">
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">1. Respuesta A:</strong> 400 € con IVA incluido.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">2. Respuesta B:</strong> NIF, nombre o razón social y domicilio del cliente obligatoriamente.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">3. Respuesta A:</strong> Antes del día 16 del mes siguiente a la realización de la operación.
+        </div>
+        <div class="bg-slate-800/80 p-3 rounded-xl border border-emerald-500/40">
+          <strong class="text-emerald-400">4. Respuesta B:</strong> Una deuda con la Hacienda Pública hasta su liquidación.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 52: ACTIVIDADES A3 Y A4 (B06) - MODELOS Y PLAZOS -->
+    <div class="slide" id="slide-52">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Actividades A3 y A4 · Autocorregibles</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDADES A3 y A4 — Modelos y Vencimientos</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto text-xs">
+        <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
+          <h3 class="font-bold text-amber-400">A3. Relaciona Modelo y Función</h3>
+          <div>a) Modelo 130 $\rightarrow$ [ ¿Función? ]</div>
+          <div>b) Modelo 115 $\rightarrow$ [ ¿Función? ]</div>
+          <div>c) Modelo 347 $\rightarrow$ [ ¿Función? ]</div>
+          <div>d) Modelo 303 $\rightarrow$ [ ¿Función? ]</div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 space-y-2">
+          <h3 class="font-bold text-amber-400">A4. Indica el Plazo Correcto</h3>
+          <div>1. Modelo 303 del 3er Trimestre $\rightarrow$ [ ¿Plazo? ]</div>
+          <div>2. Modelo 202 de Diciembre $\rightarrow$ [ ¿Plazo? ]</div>
+          <div>3. Modelo 303 del 4º Trimestre $\rightarrow$ [ ¿Plazo? ]</div>
+          <div>4. Modelo 347 $\rightarrow$ [ ¿Plazo? ]</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 53: SOLUCIÓN ACTIVIDADES A3 Y A4 (B06) -->
+    <div class="slide" id="slide-53">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividades A3 y A4</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDADES A3 y A4</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto text-xs">
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-emerald-500/40 space-y-2">
+          <h3 class="font-bold text-emerald-400">Solución A3 (Modelos)</h3>
+          <div>• <strong>130:</strong> Pago fraccionado del IRPF del autónomo.</div>
+          <div>• <strong>115:</strong> Retenciones por alquiler de local/nave.</div>
+          <div>• <strong>347:</strong> Operaciones con terceros (+3.005,06 €).</div>
+          <div>• <strong>303:</strong> Autoliquidación trimestral del IVA.</div>
+        </div>
+
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-emerald-500/40 space-y-2">
+          <h3 class="font-bold text-emerald-400">Solución A4 (Plazos)</h3>
+          <div>• <strong>303 (3T):</strong> Hasta el 20 de octubre.</div>
+          <div>• <strong>202 (Dic):</strong> Hasta el 20 de diciembre.</div>
+          <div>• <strong>303 (4T):</strong> Hasta el 30 de enero.</div>
+          <div>• <strong>347:</strong> Mes de febrero.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 54: ACTIVIDAD A5 (B06) - EMITIR FACTURA -->
+    <div class="slide" id="slide-54">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Actividad A5 · De Aula</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A5 — Emisión de Factura Ordinaria</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-4">
+        <div class="mb-2">
+          <span class="bg-blue-900 text-blue-300 font-bold px-3 py-1 rounded-full">Caso de Aula</span>
+        </div>
+        <p class="text-slate-300 leading-relaxed">
+          Un taller mecánico náutico en Ciutadella realiza la sustitución de la hélice de un barco charter propiedad de una empresa. El importe del servicio de reparación asciende a <strong>800 €</strong> (Base Imponible).
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2 font-mono">
+          <div>Emite en la plantilla la factura ordinaria correspondiente calculando:</div>
+          <div>1. Base Imponible.</div>
+          <div>2. Tipo de IVA aplicable (21 %) y cuota de IVA.</div>
+          <div>3. Importe total a cobrar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 55: SOLUCIÓN ACTIVIDAD A5 (B06) -->
+    <div class="slide" id="slide-55">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A5</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A5</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto">
+        <div class="max-w-md mx-auto bg-slate-900 p-6 rounded-xl border border-slate-700 text-xs font-mono space-y-3">
+          <div class="text-center font-bold text-blue-400 border-b border-slate-800 pb-2">FACTURA ORDINARIA N.º 2026/042</div>
+          <div class="flex justify-between text-slate-400"><span>Fecha: 15/10/2026</span><span>NIF Emisor: 41500800A</span></div>
+          <div class="border-b border-slate-800 pb-2 text-slate-300">Cliente: Chárter Náutico Menorca S.L. (NIF B57000111)</div>
+          
+          <div class="space-y-1">
+            <div class="flex justify-between"><span>Sustitución de hélice:</span><span>800,00 €</span></div>
+            <div class="flex justify-between"><span>Base Imponible:</span><span>800,00 €</span></div>
+            <div class="flex justify-between text-purple-300"><span>IVA (21 %):</span><span>168,00 €</span></div>
+          </div>
+          
+          <div class="border-t border-slate-700 pt-2 flex justify-between font-bold text-emerald-400 text-sm">
+            <span>TOTAL FACTURA:</span><span>968,00 €</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 56: ACTIVIDAD A6 (B06) - LIQUIDACIÓN CHÁRTER MAÓ -->
+    <div class="slide" id="slide-56">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Actividad A6 · Para Classroom</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A6 — Liquidación de Chárter Náutico</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-4">
+        <p class="text-slate-300 leading-relaxed">
+          Una empresa de chárter en Maó presenta los siguientes datos en el tercer trimestre:
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 font-mono text-blue-300 space-y-1">
+          <div>• Facturación de salidas: 15.000 € (+ 21% IVA)</div>
+          <div>• Gastos de combustible y amarres: 6.000 € (+ 21% IVA)</div>
+        </div>
+        <div class="text-slate-300 space-y-2">
+          <div><strong>Tareas a entregar en Classroom:</strong></div>
+          <div>1. Calcula el IVA Repercutido y el IVA Soportado deducible.</div>
+          <div>2. Obtén el resultado del Modelo 303.</div>
+          <div>3. Indica la fecha límite de presentación.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 57: SOLUCIÓN ACTIVIDAD A6 (B06) -->
+    <div class="slide" id="slide-57">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Solución · Actividad A6</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">SOLUCIÓN — ACTIVIDAD A6</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-3 font-mono">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          1. IVA Repercutido = 15.000 € × 21 % = <span class="text-purple-300 font-bold">3.150 €</span><br>
+          IVA Soportado Deducible = 6.000 € × 21 % = <span class="text-blue-300 font-bold">1.260 €</span>
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800">
+          2. Resultado Modelo 303 = 3.150 € - 1.260 € = <span class="text-emerald-400 font-bold">1.890 € a ingresar</span>
+        </div>
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-amber-300">
+          3. Plazo límite de presentación: 20 de octubre.
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 58: ACTIVIDAD A7 (B06) - CALENDARIO DEL PRIMER AÑO -->
+    <div class="slide" id="slide-58">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Actividad A7 · Para Classroom</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">ACTIVIDAD A7 — Calendario Fiscal Integral</h2>
+      </div>
+      <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 my-auto text-xs space-y-4">
+        <p class="text-slate-300 leading-relaxed">
+          Diseña el <strong>calendario fiscal del primer año</strong> para la idea de negocio náutico desarrollada en el módulo (taller de mantenimiento, tienda de repuestos o empresa de alquiler de embarcaciones).
+        </p>
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 space-y-2">
+          <div><strong>El documento debe incluir:</strong></div>
+          <div>1. Forma jurídica elegida e impuestos a los que está sujeta.</div>
+          <div>2. Relación de modelos trimestrales (303, 130/202, 115, 111) con sus fechas límites exactas.</div>
+          <div>3. Modelos informativos anuales obligatorios (390, 190, 180, 347).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 59: ERRORES FRECUENTES EN LA GESTIÓN -->
+    <div class="slide" id="slide-59">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-red-400 uppercase tracking-wider">Prevención de Riesgos de Gestión</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Errores Frecuentes a Evitar en el Negocio Náutico</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto text-xs">
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Confundir IVA con Ingreso Propio:</strong> Gastarse el IVA repercutido cobrado al cliente antes de liquidarlo a Hacienda en el trimestre.
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Creer que la Cuota de Autónomo es Fija:</strong> No ajustar la previsión de ingresos reales y sufrir regularizaciones elevadas a año pasado.
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Confundir TRADE con Falso Autónomo:</strong> Exigir horario fijo y exclusividad a un técnico sin formalizar un contrato asalariado legal.
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Facturas Simplificadas a Empresas:</strong> Emitir tiques sin NIF del cliente impedirá que este pueda deducirse el IVA de la reparación.
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Confundir Exención de IAE con No Declarar:</strong> No indicar el epígrafe de actividad (372.1) en el alta censal (Modelo 036/037).
+          </div>
+        </div>
+
+        <div class="bg-slate-800 p-4 rounded-xl border border-red-500/30 flex space-x-3 items-start">
+          <i class="fa-solid fa-triangle-exclamation text-red-400 text-base mt-0.5"></i>
+          <div>
+            <strong class="text-white">Olvidar la Declaración Responsable Municipal:</strong> Abrir el taller o la nave sin comunicar la actividad al Ayuntamiento.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 60: NORMATIVA LEGAL APLICABLE -->
+    <div class="slide" id="slide-60">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Marco Jurídico</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Normativa Legal Aplicable a la UD</h2>
+      </div>
+      <div class="overflow-x-auto my-auto">
+        <table class="w-full text-left text-xs text-slate-300 border-collapse">
+          <thead>
+            <tr class="bg-slate-800 text-blue-400 border-b border-slate-700">
+              <th class="p-3 font-bold">Norma Legal</th>
+              <th class="p-3 font-bold">Ámbito de Regulación en la Unidad</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-3 font-bold text-white">Ley 20/2007</td>
+              <td class="p-3">Estatuto del Trabajo Autónomo (define al autónomo y el régimen del TRADE).</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Real Decreto-ley 13/2022</td>
+              <td class="p-3">Establece el nuevo sistema de cotización por rendimientos reales en el RETA.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Ley 18/2022 (Crea y Crece)</td>
+              <td class="p-3">Agiliza la creación telemática de empresas y fija el capital mínimo de la S.L. en 1 €.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Ley 58/2003, General Tributaria</td>
+              <td class="p-3">Marco general del sistema tributario, definición de impuestos, tasas y contribuciones.</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-bold text-white">Ley 37/1992 del IVA y RD 1619/2012</td>
+              <td class="p-3">Mecánica del IVA, exenciones, tipos impositivos y Reglamento de Facturación.</td>
+            </tr>
+            <tr class="bg-slate-900/40">
+              <td class="p-3 font-bold text-white">Real Decreto 1007/2023</td>
+              <td class="p-3">Regula los requisitos informáticos de los sistemas de facturación (Veri*Factu).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 61: FUENTES Y RECURSOS -->
+    <div class="slide" id="slide-61">
+      <div class="mb-4">
+        <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Recursos de Consulta</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Fuentes Oficiales y Enlaces de Interés</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto text-xs">
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 space-y-3">
+          <h3 class="font-bold text-blue-400 text-sm mb-2"><i class="fa-solid fa-globe mr-2"></i> Portales Oficiales</h3>
+          <div>• <strong>Agencia Tributaria (Sede Electrónica):</strong> <a href="https://sede.agenciatributaria.gob.es" target="_blank" class="text-blue-300 underline">sede.agenciatributaria.gob.es</a></div>
+          <div>• <strong>Seguridad Social (Importass):</strong> <a href="https://sede.seg-social.gob.es" target="_blank" class="text-blue-300 underline">sede.seg-social.gob.es</a></div>
+          <div>• <strong>Creación de Empresas (PAE / CIRCE):</strong> <a href="https://paeelectronico.es" target="_blank" class="text-blue-300 underline">paeelectronico.es</a></div>
+          <div>• <strong>Registro Mercantil Central:</strong> <a href="https://www.rmc.es" target="_blank" class="text-blue-300 underline">rmc.es</a></div>
+          <div>• <strong>Agència Tributària de les Illes Balears:</strong> <a href="https://www.atib.es" target="_blank" class="text-blue-300 underline">atib.es</a></div>
+        </div>
+
+        <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 space-y-3">
+          <h3 class="font-bold text-emerald-400 text-sm mb-2"><i class="fa-brands fa-youtube mr-2"></i> Términos Recomendados para Búsqueda Didáctica</h3>
+          <div>• "Alta autónomo RETA Importass paso a paso"</div>
+          <div>• "Cotización autónomos por ingresos reales 2026"</div>
+          <div>• "Cómo rellenar el modelo 037 alta autónomo"</div>
+          <div>• "Cómo presentar el modelo 303 de IVA"</div>
+          <div>• "Modelo 130 pago fraccionado autónomos"</div>
+          <div>• "Veri*Factu fechas de implantación 2027"</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 62: CONCLUSIÓN Y CIERRE -->
+    <div class="slide" id="slide-62">
+      <div class="flex flex-col justify-center items-center text-center my-auto py-12">
+        <div class="bg-blue-600 text-white p-4 rounded-2xl font-bold text-3xl mb-6 shadow-lg shadow-blue-500/20">
+          <i class="fa-solid fa-flag-checkered"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">¡Fin de la Unidad Didáctica 2!</h2>
+        <p class="text-slate-300 text-base max-w-xl mb-8">
+          Has completado el estudio integral de las obligaciones laborales, los trámites de constitución y el marco fiscal aplicado a las empresas del sector náutico.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <button onclick="goToSlide(1)" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-xl transition text-xs uppercase tracking-wider flex items-center">
+            <i class="fa-solid fa-rotate-left mr-2"></i> Volver al Inicio
+          </button>
+          <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl transition text-xs uppercase tracking-wider flex items-center">
+            <i class="fa-solid fa-print mr-2"></i> Guardar como Documento PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION CONTROLS -->
+  <footer id="nav-controls" class="bg-slate-900 border-t border-slate-800 px-6 py-3 sticky bottom-0 z-50 flex justify-between items-center">
+    <button id="prev-btn" onclick="prevSlide()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-4 py-2 rounded-xl border border-slate-700 transition flex items-center text-xs">
+      <i class="fa-solid fa-chevron-left mr-2"></i> Anterior
+    </button>
+
+    <div class="flex items-center space-x-2">
+      <select id="slide-select" onchange="goToSlide(parseInt(this.value))" class="bg-slate-800 border border-slate-700 text-slate-300 text-xs rounded-xl px-3 py-2 font-semibold">
+        <!-- JS injects options -->
+      </select>
+    </div>
+
+    <button id="next-btn" onclick="nextSlide()" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2 rounded-xl transition flex items-center text-xs shadow-lg shadow-blue-600/20">
+      Siguiente <i class="fa-solid fa-chevron-right ml-2"></i>
+    </button>
+  </footer>
+
+  <!-- SCRIPT DE NAVEGACIÓN DE DIAPOSITIVAS -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 62;
+
+    function init() {
+      const select = document.getElementById('slide-select');
+      for (let i = 1; i <= totalSlides; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = `Diapositiva ${i}`;
+        select.appendChild(option);
+      }
+      updateSlideDisplay();
+    }
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+
+      document.querySelectorAll('.slide').forEach(slide => {
+        slide.classList.remove('active');
+      });
+
+      const targetSlide = document.getElementById(`slide-${index}`);
+      if (targetSlide) {
+        targetSlide.classList.add('active');
+        currentSlide = index;
+        updateSlideDisplay();
+      }
+    }
+
+    function updateSlideDisplay() {
+      document.getElementById('slide-counter').textContent = `Diapositiva ${currentSlide} / ${totalSlides}`;
+      document.getElementById('slide-select').value = currentSlide;
+      
+      const percentage = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+      document.getElementById('progress-fill').style.width = `${percentage}%`;
+
+      document.getElementById('prev-btn').disabled = (currentSlide === 1);
+      document.getElementById('prev-btn').style.opacity = (currentSlide === 1) ? '0.5' : '1';
+
+      document.getElementById('next-btn').disabled = (currentSlide === totalSlides);
+      document.getElementById('next-btn').style.opacity = (currentSlide === totalSlides) ? '0.5' : '1';
+
+      if (window.MathJax) {
+        MathJax.typesetPromise();
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) showSlide(currentSlide - 1);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => {
+          console.log(`Error al activar pantalla completa: ${err.message}`);
+        });
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    // Keyboard navigation shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    window.onload = init;
+  </script>
+</body>
+</html>
